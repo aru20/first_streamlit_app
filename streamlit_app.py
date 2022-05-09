@@ -20,9 +20,9 @@ my_fruit_list = my_fruit_list.set_index('Fruit')
 # After pulling the data into a pandas dataframe called my_fruit_list, we will ask the streamlit library to display it on the page
 
 # Let's put a pick list here so they can pick the fruit they want to include
-#streamlit.multiselect("pick some fruits:" , list(my_fruit_list.Fruit))
+streamlit.multiselect("pick some fruits:" , list(my_fruit_list.Fruit))
 
 #display the table on the page
 
-#straemlit.dataframe(my_fruit_list)
+straemlit.dataframe(my_fruit_list)
                   
