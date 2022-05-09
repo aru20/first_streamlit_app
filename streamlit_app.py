@@ -1,6 +1,6 @@
 
 import streamlit
-import panda
+import pandas
 streamlit.title('My First App')
 streamlit.title('My Parent\'s New Healthy Dinner🍽️')
 streamlit.header('🥗 Breakfast Menu')
