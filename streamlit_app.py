@@ -33,7 +33,7 @@ try:
   if not fruit_choice:
        streamlit.error("Please select a fruit to get information.")
   else:   
-fruityvice_response =requests.get("https://fruityvice.com/api/fruit/watermelon")
+fruityvice_response =requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 # Just Writes the data to the Screen
 # streamlit.text(fruityvice_response.json())
 # take the json version of the response and normalize it
