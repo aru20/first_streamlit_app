@@ -1,6 +1,10 @@
 
 import streamlit
 import pandas
+import snowflake.connector
+import requests 
+
+from urllib.error import URLError
 streamlit.title('My First App')
 streamlit.title('My Parent\'s New Healthy Dinner🍽️')
 streamlit.header('🥗 Breakfast Menu')
@@ -24,7 +28,11 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 
 streamlit.dataframe(fruits_to_show)
 streamlit.header('Fruityvice Fruit Advice!')
-import requests                  
+try:
+  fruit_choice = streamlit.text_input('What friut would you like information about?')
+  if not friut _choice:
+       streamlit.error("Please select a fruit to get information.")
+   else   
 fruityvice_response =requests.get("https://fruityvice.com/api/fruit/watermelon")
 # Just Writes the data to the Screen
 # streamlit.text(fruityvice_response.json())
@@ -32,14 +40,15 @@ fruityvice_response =requests.get("https://fruityvice.com/api/fruit/watermelon")
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # output it on the screen as a table
 streamlit.dataframe(fruityvice_normalized)
-import snowflake.connector
+except URLError as e
+streamlit.error()
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
 my_data_rows = my_cur.fetchall()
 streamlit.header("The fruit load list contains:")
 streamlit.dataframe(my_data_rows)
-text_input = streamlit.text_input("Enter your own fruit","")
+text_input = streamlit.text_input("What friut do you like to add","")
 streamlit.markdown(f"My fruit is:{text_input}")
-
+my_cur.execute("insert into fruit_load_list values('from streamlit')")
 
