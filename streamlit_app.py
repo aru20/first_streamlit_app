@@ -40,6 +40,6 @@ my_data_rows = my_cur.fetchall()
 streamlit.header("The fruit load list contains:")
 streamlit.dataframe(my_data_rows)
 text_input = streamlit.text_input("Enter your own fruit","")
-streamlit.markdown("My fruit is:{text_input}")
+streamlit.markdown("My fruit is":{text_input})
 
 
