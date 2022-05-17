@@ -40,7 +40,7 @@ try:
       fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # output it on the screen as a table
       streamlit.dataframe(fruityvice_normalized)
-except URLError as e
+except URLError as e:
   streamlit.error()
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
