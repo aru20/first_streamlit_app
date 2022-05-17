@@ -32,7 +32,7 @@ try:
   fruit_choice = streamlit.text_input('What friut would you like information about?')
   if not friut _choice:
        streamlit.error("Please select a fruit to get information.")
-   else   
+   else:   
 fruityvice_response =requests.get("https://fruityvice.com/api/fruit/watermelon")
 # Just Writes the data to the Screen
 # streamlit.text(fruityvice_response.json())
